@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+    </head>
+    <style>
+        
+        div.bar{
+        display: inline-block;
+        width: 40px;
+        height: 100px;
+        margin: 3px;
+        background-color: teal;
+        border: solid 1px;
+       
+        }
+        
+    </style>
+    <body>
+        <h1>D3 Library Test</h1>
+        <!--<script type="text/javascript">
+            var dataset=[20, 38, 45, 75, 64];   
+            d3.select("body")
+                .selectAll("p")
+                .data(dataset)
+                .enter()
+                .append("p")
+            
+                .style("color", function(d){if (d > 45)
+                        {  
+                        return "red";
+                    }else{
+                        return "black";
+                        }
+                    })
+                
+                .text(function(d){
+                    return d +" that is good so far";
+                    });
+                                
+            d3.select("body").selectAll("div")
+                .data(dataset)
+                .enter()
+                .append("div")
+                .attr("class", "bar")
+                .text(function(d) {return d;})
+                .style("height", function(d){return (d*2)+"px";})
+                .style("float", "left");
+                
+                
+            
+        </script>
+-->        
+        
+        <script type="text/javascript">
+            var dataset=[];
+            for (var i =0; i<12; i++){
+                var newNumber=Math.round( Math.random()*100);
+                dataset.push(newNumber+100);
+            }
+    
+            d3.select("body").selectAll("div")
+                .data(dataset)
+                .enter()
+                .append("div")
+                .attr("class", "bar")
+                
+                .style("height", function(d){return (d*2)+"px";})
+                .style("float", "left")
+                .style ("background-color", function(d){
+                    var r = d+100;
+                    var g = Math.round(Math.random()*255);
+                    var b = Math.round(Math.random()*255);
+                    var a = Math.round(Math.random()*0.5)+0.5;
+                    return "rgba("+r+", "+g+","+b+", .8)";});
+                
+            
+        </script>
+        
+    </body>
+</html>
