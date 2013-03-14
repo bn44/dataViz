@@ -20,7 +20,8 @@
     </style>
     <body>
         <h1>D3 Library Test</h1>
-        <!--<script type="text/javascript">
+        <!-- Part 1
+        <script type="text/javascript">
             var dataset=[20, 38, 45, 75, 64];   
             d3.select("body")
                 .selectAll("p")
@@ -48,15 +49,14 @@
                 .text(function(d) {return d;})
                 .style("height", function(d){return (d*2)+"px";})
                 .style("float", "left");
-                
-                
             
-        </script>
--->        
+        </script> end of Part1-->
         
+        <!-- Part2 Every thing is RANDOM
         <script type="text/javascript">
+            var x= Math.round(Math.random()*20);
             var dataset=[];
-            for (var i =0; i<12; i++){
+            for (var i =0; i<x; i++){
                 var newNumber=Math.round( Math.random()*100);
                 dataset.push(newNumber+100);
             }
@@ -74,10 +74,39 @@
                     var g = Math.round(Math.random()*255);
                     var b = Math.round(Math.random()*255);
                     var a = Math.round(Math.random()*0.5)+0.5;
-                    return "rgba("+r+", "+g+","+b+", .8)";});
-                
-            
-        </script>
+                    return "rgba("+r+", "+g+","+b+", .8)";});    
+        </script> End of Random-->
         
+            <script>
+                var dataset=[10, 50, 43, 29, 47];
+                var w = 1000;
+                var h = 1000;
+                var edge=0;
+
+
+                var svg = d3.select("body").append("svg").attr("width",w)
+                            .attr("height",h);
+
+                var circles = svg.selectAll("circle")
+                            .data(dataset)
+                            .enter()
+                            .append("circle");
+
+                circles.attr("cx", function(d, i){
+                    edge = edge +10 + (2*d);
+                   return edge ;
+                })
+                        .attr("cy", h/2)
+                        .attr("r", function(d){return d;})
+                        .attr("fill", function(d){
+                    var r = d+100;
+                    var g = Math.round(Math.random()*255);
+                    var b = Math.round(Math.random()*255);
+                    var a = Math.round(Math.random()*0.5)+0.5;
+                    return "rgba("+r+", "+g+","+b+", .8)";});  
+                        
+
+	</script>
+      
     </body>
 </html>
